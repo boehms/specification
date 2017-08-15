@@ -1,0 +1,18 @@
+The explicit non-blocking \ac{RMA} routines described in this section are
+one-sided communication mechanisms similar to the \ac{RMA} routines
+described in Section~\ref{sec:rma}.
+It describes the routines for: explicit non-blocking \ac{RMA},
+the routines used to track the \ac{RMA} routines, and the
+allocation, deallocation and merging of request objects.
+
+All explicit non-blocking \ac{RMA} routines take a handle to a request
+object as parameter. Request objects are of the type
+\CTYPE{shmem\_request\_t}. The request object is used to track the
+status of \ac{RMA} operations. A request object can be used to track one
+or more operations. If a request object is used for multiple
+communication operations, the resources assigned to the request object
+can be shared.
+
+Non-blocking \ac{RMA} routines are safe to use in multi threaded
+environments. Merged requests can be used to separate communication
+streams on a per thread basis, or can be shared among threads.
